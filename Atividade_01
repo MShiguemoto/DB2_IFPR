@@ -1,0 +1,33 @@
+Atividade 01 _ 13/02/2023
+
+create database shiguemoto;
+use  shiguemoto;
+
+create table Aluno (
+id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+data_nascimento DATETIME,
+idade INT(2) NOT NULL, 
+CONSTRAINT Cidade_nascimento_id FOREIGN KEY (cidade_id) REFERENCES cidade (id),
+CONSTRAINT Disciplina_favorita_id FOREIGN KEY (disciplina_id) REFERENCES disciplina(id)
+);
+
+create table cidade (
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
+nome VARCHAR(30) NOT NULL,
+CONSTRAINT estado FOREIGN KEY (estado_id) REFERENCES estado(id)
+);
+
+create table Estado (
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
+nome VARCHAR(30) NOT NULL
+);
+
+create table disciplina (
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT UNIQUE,
+nome VARCHAR (30) NOT NULL
+);
+
+create table Aluno_disciplina (
+CONSTRAINT disciplina_id FOREIGN KEY (disciplina_id) REFERENCES disciplina (id),
+CONSTRAINT Aluno_id FOREIGN KEY (aluno_id) REFERENCES aluno (id)
+);
